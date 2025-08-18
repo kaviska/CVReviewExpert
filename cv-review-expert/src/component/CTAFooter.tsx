@@ -13,24 +13,19 @@ export default function CTAFooter() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <button className="relative bg-white text-blue-600 px-10 py-5 rounded-2xl text-lg font-bold hover:bg-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:scale-105 shadow-xl overflow-hidden group">
+            <a
+              href="/cv-review"
+              className="relative bg-white text-blue-600 px-10 py-5 rounded-2xl text-lg font-bold hover:bg-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:scale-105 shadow-xl overflow-hidden group flex items-center justify-center"
+            >
               <span className="absolute inset-0 bg-gray-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               <span className="relative flex items-center justify-center">
-                <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clipRule="evenodd"/>
-                </svg>
-                Upload Your CV Now
+              <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clipRule="evenodd"/>
+              </svg>
+              Upload Your CV Now
               </span>
-            </button>
-            <button className="relative border-3 border-white text-white px-10 py-5 rounded-2xl text-lg font-bold hover:bg-white hover:text-blue-600 hover:shadow-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden group">
-              <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-              <span className="relative flex items-center justify-center">
-                <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd"/>
-                </svg>
-                Start Free Scan
-              </span>
-            </button>
+            </a>
+          
           </div>
 
           {/* Trust Indicators */}
@@ -74,7 +69,7 @@ export default function CTAFooter() {
                 AI-powered CV analysis that helps you land your dream job faster.
               </p>
               <div className="flex space-x-4">
-                <a href="#" className="text-blue-100 hover:text-white transition-colors duration-200">
+                {/* <a href="#" className="text-blue-100 hover:text-white transition-colors duration-200">
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
                   </svg>
@@ -88,7 +83,7 @@ export default function CTAFooter() {
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
                   </svg>
-                </a>
+                </a> */}
               </div>
             </div>
 
@@ -96,10 +91,9 @@ export default function CTAFooter() {
             <div>
               <h4 className="text-lg font-semibold text-white mb-4">Product</h4>
               <ul className="space-y-2">
-                <li><a href="#features" className="text-blue-100 hover:text-white transition-colors duration-200">Features</a></li>
-                <li><a href="#pricing" className="text-blue-100 hover:text-white transition-colors duration-200">Pricing</a></li>
-                <li><a href="#" className="text-blue-100 hover:text-white transition-colors duration-200">API</a></li>
-                <li><a href="#" className="text-blue-100 hover:text-white transition-colors duration-200">Integrations</a></li>
+                <li><a href="/cv-review" className="text-blue-100 hover:text-white transition-colors duration-200">Cv Review</a></li>
+                <li><a href="#" className="text-blue-100 hover:text-white transition-colors duration-200">AI Interview</a></li>
+               
               </ul>
             </div>
 
@@ -107,10 +101,10 @@ export default function CTAFooter() {
             <div>
               <h4 className="text-lg font-semibold text-white mb-4">Company</h4>
               <ul className="space-y-2">
-                <li><a href="#about" className="text-blue-100 hover:text-white transition-colors duration-200">About Us</a></li>
-                <li><a href="#" className="text-blue-100 hover:text-white transition-colors duration-200">Blog</a></li>
-                <li><a href="#" className="text-blue-100 hover:text-white transition-colors duration-200">Careers</a></li>
-                <li><a href="#contact" className="text-blue-100 hover:text-white transition-colors duration-200">Contact</a></li>
+                <li><a href="/about" className="text-blue-100 hover:text-white transition-colors duration-200">About Us</a></li>
+                <li><a href="/all-blog" className="text-blue-100 hover:text-white transition-colors duration-200">Blog</a></li>
+                <li><a href="/" className="text-blue-100 hover:text-white transition-colors duration-200">Home</a></li>
+                <li><a href="/contact" className="text-blue-100 hover:text-white transition-colors duration-200">Contact</a></li>
               </ul>
             </div>
 
@@ -118,10 +112,8 @@ export default function CTAFooter() {
             <div>
               <h4 className="text-lg font-semibold text-white mb-4">Support</h4>
               <ul className="space-y-2">
-                <li><a href="#faq" className="text-blue-100 hover:text-white transition-colors duration-200">FAQ</a></li>
-                <li><a href="#" className="text-blue-100 hover:text-white transition-colors duration-200">Help Center</a></li>
-                <li><a href="#" className="text-blue-100 hover:text-white transition-colors duration-200">Privacy Policy</a></li>
-                <li><a href="#" className="text-blue-100 hover:text-white transition-colors duration-200">Terms of Service</a></li>
+                <li><a href="/privacy-policy" className="text-blue-100 hover:text-white transition-colors duration-200">Privacy Policy</a></li>
+                <li><a href="/terms" className="text-blue-100 hover:text-white transition-colors duration-200">Terms of Service</a></li>
               </ul>
             </div>
           </div>
@@ -129,13 +121,13 @@ export default function CTAFooter() {
           {/* Bottom Bar */}
           <div className="border-t border-blue-500 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-blue-100 text-sm">
-              © 2024 CVReviewExpert. All rights reserved.
+              © 2025 CVReviewExpert. All rights reserved.
             </p>
-            <div className="flex items-center space-x-6 mt-4 md:mt-0">
+            {/* <div className="flex items-center space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-blue-100 hover:text-white text-sm transition-colors duration-200">Privacy</a>
               <a href="#" className="text-blue-100 hover:text-white text-sm transition-colors duration-200">Terms</a>
               <a href="#" className="text-blue-100 hover:text-white text-sm transition-colors duration-200">Cookies</a>
-            </div>
+            </div> */}
           </div>
         </div>
       </footer>

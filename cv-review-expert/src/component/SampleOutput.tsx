@@ -12,8 +12,8 @@ export default function SampleOutput() {
           </p>
         </div>
 
-        {/* Demo Report */}
-        <div className="max-w-5xl mx-auto">
+  {/* Demo Report */}
+  <div id="sample-report" className="max-w-5xl mx-auto">
           <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
             {/* Report Header */}
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-8 text-white">
@@ -511,19 +511,25 @@ export default function SampleOutput() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-              <button className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 text-white px-8 py-4 rounded-2xl text-lg font-bold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 shadow-xl overflow-hidden group">
+                <a
+                href="/cv-review"
+                className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 text-white px-8 py-4 rounded-2xl text-lg font-bold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 shadow-xl overflow-hidden group"
+                >
                 <span className="absolute inset-0 bg-gradient-to-r from-blue-500 via-blue-600 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 <span className="relative flex items-center justify-center">
                   <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clipRule="evenodd"/>
+                  <path fillRule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clipRule="evenodd"/>
                   </svg>
                   Analyze My CV/Resume Now
                 </span>
-              </button>
+                </a>
               
-              <button className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300">
-                View Sample Reports
-              </button>
+                <a
+                  href="#sample-report"
+                  className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 inline-block"
+                >
+                  View Sample Reports
+                </a>
             </div>
             
             <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto text-sm text-gray-600">

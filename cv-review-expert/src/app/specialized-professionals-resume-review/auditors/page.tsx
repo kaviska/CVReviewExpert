@@ -45,7 +45,7 @@ export default function AuditorsPage() {
                 Review My Auditing CV Now
               </a>
               <a
-                href="#features"
+                href="/about"
                 className="border-2 border-white hover:bg-white hover:text-orange-600 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
               >
                 Learn More

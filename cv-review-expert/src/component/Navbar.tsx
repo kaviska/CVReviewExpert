@@ -29,6 +29,9 @@ export default function Navbar() {
               <a href="/all-blog" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
                 Blogs
               </a>
+              <a href="/specialized-professionals-resume-review" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                Specialized
+              </a>
               <a href="/pricing" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
                 Pricing
               </a>
@@ -92,19 +95,22 @@ export default function Navbar() {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <a href="#home" className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-sm font-medium">
+              <a href="/" className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-sm font-medium">
                 Home
               </a>
-              <a href="#features" className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-sm font-medium">
-                Features
+              <a href="/all-blog" className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-sm font-medium">
+                Blogs
               </a>
-              <a href="#pricing" className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-sm font-medium">
+              <a href="/specialized-professionals-resume-review" className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-sm font-medium">
+                Specialized
+              </a>
+              <a href="/pricing" className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-sm font-medium">
                 Pricing
               </a>
-              <a href="#about" className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-sm font-medium">
+              <a href="/about" className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-sm font-medium">
                 About
               </a>
-              <a href="#contact" className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-sm font-medium">
+              <a href="/contact" className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-sm font-medium">
                 Contact
               </a>
               <div className="border-t border-gray-200 pt-4 pb-3">

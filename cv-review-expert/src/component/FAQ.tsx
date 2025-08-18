@@ -94,18 +94,26 @@ export default function FAQ() {
           <h3 className="text-xl font-bold text-gray-900 mb-4">Still have questions?</h3>
           <p className="text-gray-600 mb-6">Our support team helps with CV, resume, ATS, and AI analysis queries. Expect a response within 24 hours.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 text-white px-8 py-4 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 shadow-lg overflow-hidden group">
+            <a
+              href="/contact"
+              className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 text-white px-8 py-4 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 shadow-lg overflow-hidden group"
+            >
               <span className="absolute inset-0 bg-gradient-to-r from-blue-500 via-blue-600 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               <span className="relative flex items-center justify-center">
-                Contact Support
+              Contact Support
               </span>
-            </button>
-            <button className="relative border-3 border-blue-600 text-blue-600 px-8 py-4 rounded-xl font-bold hover:bg-blue-600 hover:text-white hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden group">
+            </a>
+            <a
+              href="https://wa.me/44782099178"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative border-3 border-blue-600 text-blue-600 px-8 py-4 rounded-xl font-bold hover:bg-blue-600 hover:text-white hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden group"
+            >
               <span className="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               <span className="relative flex items-center justify-center">
-                Schedule a Call
+              Schedule a Call
               </span>
-            </button>
+            </a>
           </div>
         </div>
       </div>

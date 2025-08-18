@@ -108,17 +108,7 @@ export default function WhyChooseUs() {
         </div>
 
         {/* Trust Indicators */}
-        <div className="mt-16 text-center">
-          <p className="text-gray-500 mb-8">Trusted by professionals from leading companies</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            {/* Company logos placeholder */}
-            <div className="h-8 w-24 bg-gray-200 rounded"></div>
-            <div className="h-8 w-28 bg-gray-200 rounded"></div>
-            <div className="h-8 w-20 bg-gray-200 rounded"></div>
-            <div className="h-8 w-32 bg-gray-200 rounded"></div>
-            <div className="h-8 w-24 bg-gray-200 rounded"></div>
-          </div>
-        </div>
+       
       </div>
     </section>
   );
