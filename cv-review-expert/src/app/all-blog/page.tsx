@@ -26,6 +26,8 @@ export default async function AllBlog() {
   const blogs = await getBlogs();
 
   console.log(blogs);
+  console.log("Blog slugs:", blogs.map((blog: Blog) => blog.slug));
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 py-12">
