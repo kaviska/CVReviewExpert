@@ -6,15 +6,10 @@ export default function HeroSection() {
           {/* Left Content */}
           <div className="text-center lg:text-left">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 animate-fade-in-up">
-              Get Your CV{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Reviewed by AI
-              </span>{' '}
-              in Seconds
+              Free <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">ATS Resume Checker</span> & CV Review
             </h1>
             <p className="text-xl text-gray-600 mb-8 animate-fade-in-up animation-delay-200">
-              Upload your CV and get instant feedback on structure, keywords, and job-fit. 
-              Boost your chances of landing your dream job with AI-powered insights.
+              Upload your CV or resume for an instant resume scan. Check ATS compatibility, fix keywords, and get proven tips from our AI-powered resume review service—so recruiters say yes.
             </p>
             <div className="animate-fade-in-up animation-delay-400">
               <a href="/cv-review">
@@ -24,12 +19,12 @@ export default function HeroSection() {
                     <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clipRule="evenodd"/>
                     </svg>
-                    Upload My CV
+                    Start Free CV Scan
                   </span>
                 </button>
               </a>
               <p className="text-sm text-gray-500 mt-3">
-                Free analysis • No registration required • Instant results
+                Free analysis • No registration • Results in 60 seconds
               </p>
             </div>
           </div>
@@ -76,7 +71,7 @@ export default function HeroSection() {
               <div className="absolute -bottom-4 -left-4 bg-white rounded-lg shadow-lg p-4 animate-float">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-blue-600">98%</div>
-                  <div className="text-sm text-gray-600">ATS Score</div>
+                  <div className="text-sm text-gray-600">ATS Score (estimate)</div>
                 </div>
               </div>
             </div>

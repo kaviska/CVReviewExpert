@@ -85,6 +85,9 @@ const CVReviewPage = () => {
   };
 
   // Upload file to API
+// Read the API URL at build time so it's available in the browser
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
+
 const handleUpload = async () => {
     if (!uploadState.file) return;
 
@@ -100,7 +103,7 @@ const handleUpload = async () => {
 
     try {
         // fetch does not support upload progress natively
-        const response = await fetch('/api/handle-cv', {
+        const response = await fetch(`${API_URL}/handle-cv`, {
             method: 'POST',
             body: formData,
         });

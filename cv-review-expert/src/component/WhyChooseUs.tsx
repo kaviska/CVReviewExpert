@@ -6,8 +6,8 @@ export default function WhyChooseUs() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       ),
-      title: "Lightning Fast",
-      description: "Get comprehensive results in under 1 minute",
+  title: "Lightning Fast",
+  description: "Get a comprehensive ATS resume check in under 60 seconds",
       metric: "< 1 min",
       color: "from-yellow-400 to-orange-500"
     },
@@ -17,8 +17,8 @@ export default function WhyChooseUs() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
         </svg>
       ),
-      title: "Affordable & Free to Start",
-      description: "Free analysis with premium options available",
+  title: "Affordable & Free to Start",
+  description: "Free analysis today, professional upgrades when you need them",
       metric: "Free",
       color: "from-green-400 to-emerald-500"
     },
@@ -28,8 +28,8 @@ export default function WhyChooseUs() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6" />
         </svg>
       ),
-      title: "Universal Compatibility",
-      description: "Works for any industry, role, and experience level",
+  title: "Universal Compatibility",
+  description: "Works for any industry, role, and experience level—graduates to executives",
       metric: "All Jobs",
       color: "from-blue-400 to-cyan-500"
     },
@@ -39,8 +39,8 @@ export default function WhyChooseUs() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
         </svg>
       ),
-      title: "Private & Secure",
-      description: "Your data is encrypted and never shared with third parties",
+  title: "Private & Secure",
+  description: "Your CV is encrypted, never shared, and can be deleted anytime",
       metric: "100% Secure",
       color: "from-purple-400 to-pink-500"
     }
@@ -55,7 +55,7 @@ export default function WhyChooseUs() {
             Why Choose <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Us</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We&apos;re committed to helping you land your dream job with the most advanced CV analysis technology available.
+            We&apos;re committed to helping you land your next job with proven AI CV analysis trusted by professionals worldwide.
           </p>
         </div>
 

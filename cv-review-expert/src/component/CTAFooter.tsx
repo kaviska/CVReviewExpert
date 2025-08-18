@@ -5,10 +5,10 @@ export default function CTAFooter() {
         {/* Main CTA Content */}
         <div className="animate-fade-in-up">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Your Next Job Starts with a Better CV
+            Your Next Job Starts with an ATS‑Ready CV
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Don&apos;t let a poorly optimized CV hold you back. Get AI-powered insights that help you stand out from the competition and land more interviews.
+            Don&apos;t let a poorly optimized resume hold you back. Get AI‑powered insights to pass ATS, impress recruiters, and land more interviews.
           </p>
 
           {/* CTA Buttons */}
@@ -28,7 +28,7 @@ export default function CTAFooter() {
                 <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd"/>
                 </svg>
-                Start Free Trial
+                Start Free Scan
               </span>
             </button>
           </div>

@@ -6,7 +6,7 @@ export default function Testimonials() {
       company: "TechCorp",
       image: "👩‍💼",
       rating: 5,
-      text: "This AI helped me double my interview calls in 2 weeks! The keyword suggestions were spot-on and helped me tailor my CV perfectly for each application.",
+      text: "This AI CV & resume checker helped me optimize my CV perfectly. Using keyword suggestions and ATS tips, I doubled my interview calls in just 2 weeks!",
       improvement: "2x more interviews"
     },
     {
@@ -15,7 +15,7 @@ export default function Testimonials() {
       company: "StartupXYZ",
       image: "👨‍💻",
       rating: 5,
-      text: "I was struggling with ATS systems rejecting my applications. After using this tool and implementing the suggestions, I landed 3 interviews in one week!",
+      text: "I struggled with ATS rejecting my applications. After scanning my resume with this tool, I landed 3 interviews in one week! Highly recommend for ATS-friendly CVs.",
       improvement: "90% ATS score"
     },
     {
@@ -24,7 +24,7 @@ export default function Testimonials() {
       company: "Analytics Pro",
       image: "👩‍🔬",
       rating: 5,
-      text: "The detailed analysis showed me exactly what was missing from my CV. The formatting feedback alone made my CV look so much more professional.",
+      text: "The formatting and CV template guidance was amazing. My CV and resume now look professional, recruiter-friendly, and ATS optimized.",
       improvement: "Dream job offer"
     },
     {
@@ -33,7 +33,7 @@ export default function Testimonials() {
       company: "Global Solutions",
       image: "👨‍💼",
       rating: 5,
-      text: "As someone changing careers, the skill gap analysis was invaluable. It helped me identify which skills to highlight and which to develop further.",
+      text: "Skill gap analysis helped me identify missing qualifications. I updated my CV and resume to match job descriptions and got noticed quickly.",
       improvement: "Career transition"
     },
     {
@@ -42,7 +42,7 @@ export default function Testimonials() {
       company: "Design Studio",
       image: "👩‍🎨",
       rating: 5,
-      text: "The grammar and language suggestions were incredibly helpful. My CV now reads much more professionally and confidently.",
+      text: "Grammar, language, and layout feedback made my CV more polished. I now have multiple interviews lined up thanks to ATS-friendly formatting.",
       improvement: "5 job offers"
     },
     {
@@ -51,7 +51,7 @@ export default function Testimonials() {
       company: "Sales Force Inc",
       image: "👨‍💼",
       rating: 5,
-      text: "I thought my CV was already good, but this tool revealed so many areas for improvement. The before and after difference is amazing!",
+      text: "Before using this AI resume scanner, my CV was just okay. Now it's optimized for ATS and recruiters, and I even received a higher salary offer!",
       improvement: "30% salary increase"
     }
   ];
@@ -65,7 +65,7 @@ export default function Testimonials() {
             What Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Users Say</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Join thousands of professionals who have transformed their careers with our AI-powered CV analysis.
+            Join thousands of professionals who improved interviews with our AI resume checker and ATS‑friendly templates.
           </p>
         </div>
 
@@ -74,7 +74,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group"
+              className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group relative"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Rating */}
@@ -114,36 +114,14 @@ export default function Testimonials() {
           ))}
         </div>
 
-        {/* Social Proof Stats */}
-        <div className="mt-16 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8">
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            <div className="animate-fade-in-up">
-              <div className="text-3xl font-bold text-blue-600 mb-2">4.9/5</div>
-              <div className="text-gray-600">Average Rating</div>
-            </div>
-            <div className="animate-fade-in-up animation-delay-200">
-              <div className="text-3xl font-bold text-purple-600 mb-2">10,000+</div>
-              <div className="text-gray-600">Happy Users</div>
-            </div>
-            <div className="animate-fade-in-up animation-delay-400">
-              <div className="text-3xl font-bold text-green-600 mb-2">85%</div>
-              <div className="text-gray-600">Get More Interviews</div>
-            </div>
-            <div className="animate-fade-in-up animation-delay-600">
-              <div className="text-3xl font-bold text-orange-600 mb-2">48hrs</div>
-              <div className="text-gray-600">Average Response Time</div>
-            </div>
-          </div>
-        </div>
-
         {/* CTA */}
         <div className="text-center mt-12">
           <div className="max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Ready to join them?
+              Ready to optimize your CV & Resume?
             </h3>
             <p className="text-gray-600 mb-6">
-              Transform your CV today and start getting the interviews you deserve.
+              Optimize for ATS and recruiters, then start getting interviews—fast, affordable, proven.
             </p>
             <button className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 text-white px-12 py-5 rounded-2xl text-lg font-bold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 shadow-xl overflow-hidden group">
               <span className="absolute inset-0 bg-gradient-to-r from-blue-500 via-blue-600 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>

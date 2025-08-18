@@ -7,8 +7,8 @@ export default function HowItWorks() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
         </svg>
       ),
-      title: "Upload your CV",
-      description: "Simply drag and drop your CV in PDF or Word format. We support all major file types and ensure your data stays secure."
+  title: "Upload your CV",
+  description: "Drag and drop a PDF or Word document. Our secure resume checker supports all major formats and keeps your data private."
     },
     {
       number: "02",
@@ -17,8 +17,8 @@ export default function HowItWorks() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
         </svg>
       ),
-      title: "AI Analysis",
-      description: "Our advanced AI analyzes your skills, keywords, formatting, and ATS compatibility in seconds, providing comprehensive insights."
+  title: "AI Resume Scan",
+  description: "Our ATS resume checker analyzes keywords, skills, formatting, and applicant tracking system compatibility in seconds."
     },
     {
       number: "03",
@@ -27,8 +27,8 @@ export default function HowItWorks() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
         </svg>
       ),
-      title: "Get Your Report",
-      description: "Receive a detailed, downloadable improvement report with specific recommendations to enhance your CV's effectiveness."
+  title: "Get Your Report",
+  description: "Download a clear action plan with targeted keyword fixes, formatting tweaks, and job‑match recommendations to boost interviews."
     }
   ];
 
@@ -41,7 +41,7 @@ export default function HowItWorks() {
             How It <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Works</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Get professional CV feedback in just 3 simple steps. No technical knowledge required.
+            Get professional CV feedback in 3 simple steps—optimized for ATS and real recruiters.
           </p>
         </div>
 
