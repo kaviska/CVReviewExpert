@@ -11,11 +11,13 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <h1 className="text-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent tracking-tight">
-                CVReviewExpert
-              </h1>
-            </div>
+            <a href="/" className="flex-shrink-0 flex items-center py-3">
+              <img
+                src="/logo.png"
+                alt="AUCAL Logo"
+                className="h-28 w-auto mr-2"
+              />
+            </a>
           </div>
 
           {/* Desktop Navigation */}
