@@ -3,6 +3,7 @@
 import React, { useState, useCallback } from 'react';
 import Navbar from '../../component/Navbar';
 import Footer from '../../component/Footer';
+import AnalysisResult from '../../component/AnalysisResult';
 
 interface UploadState {
   file: File | null;
@@ -11,6 +12,7 @@ interface UploadState {
   error: string | null;
   success: boolean;
   result: any;
+  parsedAnalysis?: any | null;
 }
 
 const CVReviewPage = () => {
@@ -20,19 +22,19 @@ const CVReviewPage = () => {
     progress: 0,
     error: null,
     success: false,
-    result: null
+    result: null,
+    parsedAnalysis: null,
   });
-  
+
   const [dragActive, setDragActive] = useState(false);
+  const [jobDescription, setJobDescription] = useState<string>("");
 
   // Handle drag events
   const handleDrag = useCallback((e: React.DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    if (e.type === "dragenter" || e.type === "dragover") {
-      setDragActive(true);
-    } else if (e.type === "dragleave") {
-      setDragActive(false);
+    if (e.type === 'dragenter' || e.type === 'dragleave' || e.type === 'dragover') {
+      setDragActive(e.type !== 'dragleave');
     }
   }, []);
 
@@ -41,7 +43,6 @@ const CVReviewPage = () => {
     e.preventDefault();
     e.stopPropagation();
     setDragActive(false);
-
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
       const file = e.dataTransfer.files[0];
       if (validateFile(file)) {
@@ -64,129 +65,79 @@ const CVReviewPage = () => {
   const validateFile = (file: File): boolean => {
     const maxSize = 10 * 1024 * 1024; // 10MB
     const allowedTypes = ['application/pdf'];
-
     if (!allowedTypes.includes(file.type)) {
-      setUploadState(prev => ({ 
-        ...prev, 
-        error: 'Please upload a PDF file only' 
-      }));
+      setUploadState(prev => ({ ...prev, error: 'Please upload a PDF file only' }));
       return false;
     }
-
     if (file.size > maxSize) {
-      setUploadState(prev => ({ 
-        ...prev, 
-        error: 'File size must be less than 10MB' 
-      }));
+      setUploadState(prev => ({ ...prev, error: 'File size must be less than 10MB' }));
       return false;
     }
-
     return true;
   };
 
-  // Upload file to API
-// Read the API URL at build time so it's available in the browser
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
+  // API URL
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
 
-const handleUpload = async () => {
+  const handleUpload = async () => {
     if (!uploadState.file) return;
-
-    setUploadState(prev => ({
-        ...prev,
-        uploading: true,
-        progress: 0,
-        error: null
-    }));
-
+    setUploadState(prev => ({ ...prev, uploading: true, progress: 0, error: null }));
     const formData = new FormData();
     formData.append('cv', uploadState.file);
-
+    if (jobDescription.trim()) formData.append('job_description', jobDescription.trim());
     try {
-        // fetch does not support upload progress natively
-        const response = await fetch(`${API_URL}/handle-cv`, {
-            method: 'POST',
-            body: formData,
-        });
-
-        if (response.ok) {
-            const result = await response.json();
-            setUploadState(prev => ({
-                ...prev,
-                uploading: false,
-                success: true,
-                progress: 100,
-                result
-            }));
-        } else {
-            setUploadState(prev => ({
-                ...prev,
-                uploading: false,
-                error: 'Upload failed'
-            }));
+      const response = await fetch(`${API_URL}/handle-cv`, { method: 'POST', body: formData });
+      if (response.ok) {
+        const result = await response.json();
+        // Parse Gemini JSON if present
+        let parsedAnalysis: any = null;
+        try {
+          const candidates = result?.gemini?.candidates;
+          const textBlock = candidates?.[0]?.content?.parts?.[0]?.text || '';
+          const jsonMatch = textBlock.match(/```json\n([\s\S]*?)```/i) || textBlock.match(/```\n([\s\S]*?)```/i);
+          const jsonString = jsonMatch ? jsonMatch[1] : textBlock;
+          if (jsonString?.trim()?.startsWith('{')) parsedAnalysis = JSON.parse(jsonString);
+        } catch (e) {
+          console.warn('Failed to parse Gemini JSON:', e);
         }
+        setUploadState(prev => ({ ...prev, uploading: false, success: true, progress: 100, result, parsedAnalysis }));
+      } else {
+        setUploadState(prev => ({ ...prev, uploading: false, error: 'Upload failed' }));
+      }
     } catch (error) {
-        setUploadState(prev => ({
-            ...prev,
-            uploading: false,
-            error: 'Upload failed. Please try again.'
-        }));
+      setUploadState(prev => ({ ...prev, uploading: false, error: 'Upload failed. Please try again.' }));
     }
-};
+  };
 
-  // Reset upload state
   const resetUpload = () => {
-    setUploadState({
-      file: null,
-      uploading: false,
-      progress: 0,
-      error: null,
-      success: false,
-      result: null
-    });
+    setUploadState({ file: null, uploading: false, progress: 0, error: null, success: false, result: null, parsedAnalysis: null });
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       <Navbar />
-      
-      {/* Main Content */}
       <main className="pt-20 pb-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Header */}
+  <div className={`${uploadState.success ? 'max-w-6xl' : 'max-w-4xl'} mx-auto px-4 sm:px-6 lg:px-8`}>
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Upload Your CV for
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Expert Analysis</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Get instant AI-powered insights and recommendations to improve your CV and increase your job prospects.
-            </p>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">Get instant AI-powered insights and recommendations to improve your CV and increase your job prospects.</p>
           </div>
 
           {!uploadState.success ? (
             <div className="max-w-2xl mx-auto">
-              {/* Upload Area */}
-              <div 
+              <div
                 className={`relative border-3 border-dashed rounded-2xl p-12 text-center transition-all duration-300 ${
-                  dragActive 
-                    ? 'border-blue-500 bg-blue-50' 
-                    : uploadState.file
-                    ? 'border-green-500 bg-green-50'
-                    : 'border-gray-300 bg-white hover:border-blue-400 hover:bg-blue-50'
+                  dragActive ? 'border-blue-500 bg-blue-50' : uploadState.file ? 'border-green-500 bg-green-50' : 'border-gray-300 bg-white hover:border-blue-400 hover:bg-blue-50'
                 }`}
                 onDragEnter={handleDrag}
                 onDragLeave={handleDrag}
                 onDragOver={handleDrag}
                 onDrop={handleDrop}
               >
-                <input
-                  type="file"
-                  accept=".pdf"
-                  onChange={handleFileChange}
-                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                  disabled={uploadState.uploading}
-                />
+                <input type="file" accept=".pdf" onChange={handleFileChange} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" disabled={uploadState.uploading} />
 
                 {!uploadState.file ? (
                   <>
@@ -195,15 +146,9 @@ const handleUpload = async () => {
                         <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clipRule="evenodd"/>
                       </svg>
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                      Drop your CV here or click to browse
-                    </h3>
-                    <p className="text-gray-600 mb-6">
-                      Supports PDF files up to 10MB
-                    </p>
-                    <div className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-                      Choose File
-                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Drop your CV here or click to browse</h3>
+                    <p className="text-gray-600 mb-6">Supports PDF files up to 10MB</p>
+                    <div className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg transition-all duration-300 transform hover:scale-105">Choose File</div>
                   </>
                 ) : (
                   <>
@@ -212,18 +157,10 @@ const handleUpload = async () => {
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                       </svg>
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                      File Ready to Upload
-                    </h3>
-                    <p className="text-gray-600 mb-6">
-                      {uploadState.file.name} ({(uploadState.file.size / 1024 / 1024).toFixed(2)} MB)
-                    </p>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">File Ready to Upload</h3>
+                    <p className="text-gray-600 mb-6">{uploadState.file.name} ({(uploadState.file.size / 1024 / 1024).toFixed(2)} MB)</p>
                     <div className="flex gap-4 justify-center">
-                      <button
-                        onClick={handleUpload}
-                        disabled={uploadState.uploading}
-                        className="relative bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-3 rounded-xl font-bold hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden group"
-                      >
+                      <button onClick={handleUpload} disabled={uploadState.uploading} className="relative bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-3 rounded-xl font-bold hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden group">
                         <span className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                         <span className="relative flex items-center">
                           {uploadState.uploading ? (
@@ -243,16 +180,17 @@ const handleUpload = async () => {
                           )}
                         </span>
                       </button>
-                      <button
-                        onClick={resetUpload}
-                        disabled={uploadState.uploading}
-                        className="border-2 border-gray-400 text-gray-600 px-8 py-3 rounded-xl font-bold hover:bg-gray-100 transition-all duration-300 disabled:opacity-50"
-                      >
-                        Remove File
-                      </button>
+                      <button onClick={resetUpload} disabled={uploadState.uploading} className="border-2 border-gray-400 text-gray-600 px-8 py-3 rounded-xl font-bold hover:bg-gray-100 transition-all duration-300 disabled:opacity-50">Remove File</button>
                     </div>
                   </>
                 )}
+              </div>
+
+              {/* Job Description Textarea */}
+              <div className="mt-6">
+                <label htmlFor="job-description" className="block text-sm font-medium text-gray-700 mb-2">Job Description (optional)</label>
+                <textarea id="job-description" value={jobDescription} onChange={(e) => setJobDescription(e.target.value)} placeholder="Paste the job description or key responsibilities here to tailor the analysis..." rows={5} className="w-full rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-blue-500 p-4 text-gray-700 placeholder-gray-400 shadow-sm" disabled={uploadState.uploading} />
+                <div className="mt-1 text-xs text-gray-500 text-right">{jobDescription.length} characters</div>
               </div>
 
               {/* Progress Bar */}
@@ -263,10 +201,7 @@ const handleUpload = async () => {
                     <span>{uploadState.progress}%</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-3">
-                    <div 
-                      className="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full transition-all duration-300"
-                      style={{ width: `${uploadState.progress}%` }}
-                    ></div>
+                    <div className="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full transition-all duration-300" style={{ width: `${uploadState.progress}%` }}></div>
                   </div>
                 </div>
               )}
@@ -294,7 +229,6 @@ const handleUpload = async () => {
                   <h3 className="font-bold text-gray-900 mb-2">Secure & Private</h3>
                   <p className="text-gray-600 text-sm">Your CV is processed securely and never stored permanently</p>
                 </div>
-                
                 <div className="text-center p-6 bg-white rounded-xl shadow-md">
                   <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
@@ -304,7 +238,6 @@ const handleUpload = async () => {
                   <h3 className="font-bold text-gray-900 mb-2">Instant Results</h3>
                   <p className="text-gray-600 text-sm">Get comprehensive analysis in under 30 seconds</p>
                 </div>
-                
                 <div className="text-center p-6 bg-white rounded-xl shadow-md">
                   <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg className="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
@@ -317,9 +250,8 @@ const handleUpload = async () => {
               </div>
             </div>
           ) : (
-            /* Success State with Results */
-            <div className="max-w-4xl mx-auto">
-              <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <div className="max-w-6xl mx-auto">
+              <div className="bg-white rounded-2xl shadow-lg p-8 mb-10">
                 <div className="text-center mb-8">
                   <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -330,125 +262,47 @@ const handleUpload = async () => {
                   <p className="text-gray-600">Your CV has been successfully analyzed. Here's your detailed report:</p>
                 </div>
 
-                {/* Results would be displayed here */}
-                {uploadState.result ? (
-                  <div className="space-y-6">
-                    {/* Overall Score */}
-                    <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6">
-                      <div className="flex items-center justify-between mb-4">
-                        <h3 className="text-2xl font-bold text-gray-900">Overall CV Score</h3>
-                        <div className="text-4xl font-bold text-blue-600">{uploadState.result.overallScore}/100</div>
+                {/* Results: prefer Gemini if available and not false */}
+                {(() => {
+                  const candidates = uploadState.result?.gemini?.candidates;
+                  const isFalse = typeof candidates?.[0]?.content?.parts?.[0]?.text === 'string' && candidates[0].content.parts[0].text.trim().toLowerCase() === 'false';
+                  if (isFalse) {
+                    return (
+                      <div className="bg-red-50 border border-red-200 rounded-xl p-6 mb-6">
+                        <p className="text-red-700 font-medium">Analysis could not be completed. Please ensure your CV and job role are valid and try again.</p>
                       </div>
-                      <div className="w-full bg-gray-200 rounded-full h-4">
-                        <div 
-                          className="bg-gradient-to-r from-blue-500 to-purple-500 h-4 rounded-full transition-all duration-1000"
-                          style={{ width: `${uploadState.result.overallScore}%` }}
-                        ></div>
+                    );
+                  }
+                  if (uploadState.parsedAnalysis) {
+                    return <AnalysisResult data={uploadState.parsedAnalysis} />;
+                  }
+                  if (!uploadState.result?.gemini) {
+                    return (
+                      <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6 mb-6">
+                        <p className="text-yellow-800 font-medium">Analysis service is temporarily unavailable or returned no data. Please try again.</p>
                       </div>
-                      <p className="text-gray-600 mt-2">
-                        {uploadState.result.industryComparison?.feedback}
-                      </p>
+                    );
+                  }
+                  return (
+                    <div className="bg-gray-50 rounded-xl p-6">
+                      <h3 className="text-xl font-bold text-gray-900 mb-4">CV Analysis Results</h3>
+                      <p className="text-gray-600">Processing your CV analysis...</p>
                     </div>
+                  );
+                })()}
 
-                    {/* Section Scores */}
-                    <div className="grid md:grid-cols-2 gap-6">
-                      {Object.entries(uploadState.result.sections || {}).map(([sectionKey, section]: [string, any]) => (
-                        <div key={sectionKey} className="bg-white border border-gray-200 rounded-xl p-6">
-                          <div className="flex items-center justify-between mb-3">
-                            <h4 className="text-lg font-semibold text-gray-900 capitalize">
-                              {sectionKey.replace(/([A-Z])/g, ' $1').trim()}
-                            </h4>
-                            <span className="text-xl font-bold text-blue-600">{section.score}/100</span>
-                          </div>
-                          <div className="w-full bg-gray-200 rounded-full h-2 mb-3">
-                            <div 
-                              className="bg-blue-500 h-2 rounded-full transition-all duration-1000"
-                              style={{ width: `${section.score}%` }}
-                            ></div>
-                          </div>
-                          <p className="text-gray-600 text-sm mb-2">{section.feedback}</p>
-                          {section.suggestions && (
-                            <ul className="list-disc list-inside text-sm text-gray-500">
-                              {section.suggestions.slice(0, 2).map((suggestion: string, index: number) => (
-                                <li key={index}>{suggestion}</li>
-                              ))}
-                            </ul>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Keywords Analysis */}
-                    {uploadState.result.keywords && (
-                      <div className="bg-white border border-gray-200 rounded-xl p-6">
-                        <h4 className="text-lg font-semibold text-gray-900 mb-4">Keywords Analysis</h4>
-                        <div className="grid md:grid-cols-2 gap-4">
-                          <div>
-                            <h5 className="font-medium text-green-700 mb-2">Present Keywords</h5>
-                            <div className="flex flex-wrap gap-2">
-                              {uploadState.result.keywords.present?.map((keyword: string, index: number) => (
-                                <span key={index} className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
-                                  {keyword}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                          <div>
-                            <h5 className="font-medium text-red-700 mb-2">Missing Keywords</h5>
-                            <div className="flex flex-wrap gap-2">
-                              {uploadState.result.keywords.missing?.map((keyword: string, index: number) => (
-                                <span key={index} className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">
-                                  {keyword}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Recommendations */}
-                    {uploadState.result.recommendations && (
-                      <div className="bg-white border border-gray-200 rounded-xl p-6">
-                        <h4 className="text-lg font-semibold text-gray-900 mb-4">Key Recommendations</h4>
-                        <ul className="space-y-3">
-                          {uploadState.result.recommendations.map((recommendation: string, index: number) => (
-                            <li key={index} className="flex items-start">
-                              <svg className="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"/>
-                              </svg>
-                              <span className="text-gray-700">{recommendation}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <div className="bg-gray-50 rounded-xl p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">CV Analysis Results</h3>
-                    <p className="text-gray-600">Processing your CV analysis...</p>
-                  </div>
-                )}
-
-                <div className="flex gap-4 justify-center">
-                  <button
-                    onClick={resetUpload}
-                    className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 text-white px-8 py-3 rounded-xl font-bold hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden group"
-                  >
+                <div className="flex gap-4 justify-center mt-8">
+                  <button onClick={resetUpload} className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 text-white px-8 py-3 rounded-xl font-bold hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden group">
                     <span className="absolute inset-0 bg-gradient-to-r from-blue-500 via-blue-600 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                     <span className="relative">Analyze Another CV</span>
                   </button>
-                  <button className="border-2 border-gray-400 text-gray-600 px-8 py-3 rounded-xl font-bold hover:bg-gray-100 transition-all duration-300">
-                    Download Report
-                  </button>
+                  <button className="border-2 border-gray-400 text-gray-600 px-8 py-3 rounded-xl font-bold hover:bg-gray-100 transition-all duration-300">Download Report</button>
                 </div>
               </div>
             </div>
           )}
         </div>
       </main>
-
       <Footer />
     </div>
   );

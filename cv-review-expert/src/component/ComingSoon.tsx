@@ -1,8 +1,40 @@
 'use client';
 
 import React from 'react';
+import { useEffect } from 'react';
+
+
+
 
 const ComingSoon = () => {
+  useEffect(() => {
+  const fetchData = async () => {
+    const apiKey = 'AIzaSyDmNNilZI6EsXrd2G7KobszmrzSBiqO5OM'; // Replace with your actual API key
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+    const body = {
+      contents: [
+        {
+          role: 'user',
+          parts: [{ text: 'Give me seo rich blog post about how to review cv word count 1200-1500' }]
+        }
+      ]
+    };
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  fetchData();
+}, []);
   return (
     <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
