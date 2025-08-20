@@ -117,7 +117,7 @@ const CVReviewPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       <Navbar />
       <main className="pt-20 pb-16">
-  <div className={`${uploadState.success ? 'max-w-6xl' : 'max-w-4xl'} mx-auto px-4 sm:px-6 lg:px-8`}>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Upload Your CV for
@@ -250,8 +250,8 @@ const CVReviewPage = () => {
               </div>
             </div>
           ) : (
-            <div className="max-w-6xl mx-auto">
-              <div className="bg-white rounded-2xl shadow-lg p-8 mb-10">
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
                 <div className="text-center mb-8">
                   <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">

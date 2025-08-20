@@ -7,7 +7,10 @@ const cors = require("cors");
 const app = express();
 //cors
 app.use(cors({
-    origin: "http://localhost:3000"
+    origin: [
+        "http://localhost:3000",
+        "https://www.cvreviewexpert.com"
+    ]
 }));
 
 // API routes

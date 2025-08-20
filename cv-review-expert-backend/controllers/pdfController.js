@@ -154,33 +154,50 @@ JSON structured text is preferred. Use arrays where applicable. The examples bel
 {
   "overall_score": "{number}/100",
   "summary": "{summary}",
+
   "sections_feedback": {
-    "{section01}": "{feedback_one}",
-    "{section02}": "{feedback_two}"
+    "{section01}": {
+      "feedback": "{feedback_one}",
+      "status": "Good" 
+    },
+    "{section02}": {
+      "feedback": "{feedback_two}",
+      "status": "Needs Improvement"
+    },
+    "{section03}": {
+      "feedback": "{feedback_three}",
+      "status": "Fast Improvement Needed"
+    }
   },
+
   "ats_analysis": {
     "ats_score": "{score}%",
     "keywords_present": ["{keyword01}", "{keyword02}", "{keyword03}"],
     "keywords_missing": ["{keyword01}", "{keyword02}", "{keyword03}"]
   },
+
   "language_grammar": [
     "{grammar_error_one - improvement_suggestion}",
     "{grammar_error_two - improvement_suggestion}"
   ],
+
   "impact_achievements": [
     "{suggestion_one}",
     "{suggestion_two}"
   ],
+
   "tailoring_suggestions": [
     "{suggestion_one}",
     "{suggestion_two}"
   ],
+
   "next_steps": [
     "{step_one}",
     "{step_two}",
     "{step_three}"
   ]
-}`;
+}
+`;
 
     // Call Gemini API
     const apiKey = process.env.GEMINI_API_KEY || 'AIzaSyDmNNilZI6EsXrd2G7KobszmrzSBiqO5OM';

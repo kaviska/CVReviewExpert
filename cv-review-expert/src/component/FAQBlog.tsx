@@ -5,6 +5,8 @@ interface FAQProps {
   faq: Array<{ question: string; answer: string }>;
 }
 
+// comend
+
 export default function FAQBlog({ faq }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
