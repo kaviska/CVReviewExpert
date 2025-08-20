@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import Navbar from '../../component/Navbar';
 import Footer from '../../component/Footer';
 import AnalysisResult from '../../component/AnalysisResult';
@@ -28,6 +28,7 @@ const CVReviewPage = () => {
 
   const [dragActive, setDragActive] = useState(false);
   const [jobDescription, setJobDescription] = useState<string>("");
+  const progressTimer = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Handle drag events
   const handleDrag = useCallback((e: React.DragEvent) => {
@@ -79,9 +80,37 @@ const CVReviewPage = () => {
   // API URL
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
 
+  const startProgressSimulation = () => {
+    // Clear any existing timer
+    if (progressTimer.current) {
+      clearInterval(progressTimer.current);
+      progressTimer.current = null;
+    }
+    // Start from a small baseline for visual feedback
+    setUploadState(prev => ({ ...prev, progress: Math.max(prev.progress, 5) }));
+    let current = 5;
+    progressTimer.current = setInterval(() => {
+      // Ease towards 90-95% and then wait for real completion
+      current = Math.min(current + Math.random() * 7 + 2, 93);
+      setUploadState(prev => ({ ...prev, progress: Math.max(prev.progress, Math.floor(current)) }));
+    }, 400);
+  };
+
+  const stopProgressSimulation = (final = 100) => {
+    if (progressTimer.current) {
+      clearInterval(progressTimer.current);
+      progressTimer.current = null;
+    }
+    setUploadState(prev => ({ ...prev, progress: final }));
+  };
+
   const handleUpload = async () => {
-    if (!uploadState.file) return;
+    if (!uploadState.file) {
+      setUploadState(prev => ({ ...prev, error: 'Please select a PDF file before starting analysis.' }));
+      return;
+    }
     setUploadState(prev => ({ ...prev, uploading: true, progress: 0, error: null }));
+    startProgressSimulation();
     const formData = new FormData();
     formData.append('cv', uploadState.file);
     if (jobDescription.trim()) formData.append('job_description', jobDescription.trim());
@@ -100,14 +129,27 @@ const CVReviewPage = () => {
         } catch (e) {
           console.warn('Failed to parse Gemini JSON:', e);
         }
+        stopProgressSimulation(100);
         setUploadState(prev => ({ ...prev, uploading: false, success: true, progress: 100, result, parsedAnalysis }));
       } else {
+        stopProgressSimulation(0);
         setUploadState(prev => ({ ...prev, uploading: false, error: 'Upload failed' }));
       }
     } catch (error) {
+      stopProgressSimulation(0);
       setUploadState(prev => ({ ...prev, uploading: false, error: 'Upload failed. Please try again.' }));
     }
   };
+
+  // Cleanup timer on unmount
+  useEffect(() => {
+    return () => {
+      if (progressTimer.current) {
+        clearInterval(progressTimer.current);
+        progressTimer.current = null;
+      }
+    };
+  }, []);
 
   const resetUpload = () => {
     setUploadState({ file: null, uploading: false, progress: 0, error: null, success: false, result: null, parsedAnalysis: null });
@@ -158,30 +200,8 @@ const CVReviewPage = () => {
                       </svg>
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">File Ready to Upload</h3>
-                    <p className="text-gray-600 mb-6">{uploadState.file.name} ({(uploadState.file.size / 1024 / 1024).toFixed(2)} MB)</p>
-                    <div className="flex gap-4 justify-center">
-                      <button onClick={handleUpload} disabled={uploadState.uploading} className="relative bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-3 rounded-xl font-bold hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden group">
-                        <span className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        <span className="relative flex items-center">
-                          {uploadState.uploading ? (
-                            <>
-                              <svg className="animate-spin w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clipRule="evenodd"/>
-                              </svg>
-                              Analyzing...
-                            </>
-                          ) : (
-                            <>
-                              <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 1.414L10.586 9.5 9.293 10.793a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd"/>
-                              </svg>
-                              Start Analysis
-                            </>
-                          )}
-                        </span>
-                      </button>
-                      <button onClick={resetUpload} disabled={uploadState.uploading} className="border-2 border-gray-400 text-gray-600 px-8 py-3 rounded-xl font-bold hover:bg-gray-100 transition-all duration-300 disabled:opacity-50">Remove File</button>
-                    </div>
+                    <p className="text-gray-600 mb-2">{uploadState.file.name} ({(uploadState.file.size / 1024 / 1024).toFixed(2)} MB)</p>
+                    <p className="text-gray-500 text-sm">Review or paste the job description below, then click Start Analysis.</p>
                   </>
                 )}
               </div>
@@ -191,6 +211,29 @@ const CVReviewPage = () => {
                 <label htmlFor="job-description" className="block text-sm font-medium text-gray-700 mb-2">Job Description (optional)</label>
                 <textarea id="job-description" value={jobDescription} onChange={(e) => setJobDescription(e.target.value)} placeholder="Paste the job description or key responsibilities here to tailor the analysis..." rows={5} className="w-full rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-blue-500 p-4 text-gray-700 placeholder-gray-400 shadow-sm" disabled={uploadState.uploading} />
                 <div className="mt-1 text-xs text-gray-500 text-right">{jobDescription.length} characters</div>
+                <div className="mt-4 flex flex-wrap items-center gap-4">
+                  <button onClick={handleUpload} disabled={uploadState.uploading} className="relative bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-3 rounded-xl font-bold hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden group">
+                    <span className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <span className="relative flex items-center">
+                      {uploadState.uploading ? (
+                        <>
+                          <svg className="animate-spin w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clipRule="evenodd"/>
+                          </svg>
+                          Analyzing...
+                        </>
+                      ) : (
+                        <>
+                          <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 1.414L10.586 9.5 9.293 10.793a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd"/>
+                          </svg>
+                          Start Analysis
+                        </>
+                      )}
+                    </span>
+                  </button>
+                  <button onClick={resetUpload} disabled={uploadState.uploading || !uploadState.file} className="border-2 border-gray-400 text-gray-600 px-8 py-3 rounded-xl font-bold hover:bg-gray-100 transition-all duration-300 disabled:opacity-50">Remove File</button>
+                </div>
               </div>
 
               {/* Progress Bar */}
