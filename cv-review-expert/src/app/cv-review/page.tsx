@@ -29,6 +29,7 @@ const CVReviewPage = () => {
   const [dragActive, setDragActive] = useState(false);
   const [jobDescription, setJobDescription] = useState<string>("");
   const progressTimer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const progressSectionRef = useRef<HTMLDivElement | null>(null);
 
   // Handle drag events
   const handleDrag = useCallback((e: React.DragEvent) => {
@@ -111,6 +112,15 @@ const CVReviewPage = () => {
     }
     setUploadState(prev => ({ ...prev, uploading: true, progress: 0, error: null }));
     startProgressSimulation();
+    
+    // Scroll to progress section for better user experience
+    setTimeout(() => {
+      progressSectionRef.current?.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+    }, 100);
+    
     const formData = new FormData();
     formData.append('cv', uploadState.file);
     if (jobDescription.trim()) formData.append('job_description', jobDescription.trim());
@@ -238,7 +248,7 @@ const CVReviewPage = () => {
 
               {/* Progress Bar */}
               {uploadState.uploading && (
-                <div className="mt-6">
+                <div className="mt-6" ref={progressSectionRef}>
                   <div className="flex justify-between text-sm text-gray-600 mb-2">
                     <span>Uploading and analyzing...</span>
                     <span>{uploadState.progress}%</span>

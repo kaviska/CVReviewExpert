@@ -14,6 +14,12 @@ type AnalysisData = {
   language_grammar?: string[];
   impact_achievements?: string[];
   tailoring_suggestions?: string[];
+  red_flags?: Array<{
+    issue?: string;
+    description?: string;
+    severity?: "high" | "medium" | "low";
+    solution?: string;
+  }>;
   next_steps?: string[];
 };
 
@@ -184,6 +190,89 @@ const AnalysisResult: React.FC<AnalysisResultProps> = ({ data }) => {
               <li key={`ts-${idx}`}>{item}</li>
             ))}
           </ul>
+        </Card>
+      )}
+
+      {Array.isArray(data.red_flags) && data.red_flags.length > 0 && (
+        <Card title="🚩 Red Flags Analysis" className="border-red-200 bg-gradient-to-r from-red-50 to-white">
+          <div className="space-y-4">
+            {data.red_flags.map((flag, idx) => {
+              const severityColors = {
+                high: {
+                  bg: "bg-red-100",
+                  border: "border-red-300",
+                  text: "text-red-800",
+                  accent: "bg-red-500",
+                  icon: "🔴"
+                },
+                medium: {
+                  bg: "bg-orange-100",
+                  border: "border-orange-300", 
+                  text: "text-orange-800",
+                  accent: "bg-orange-500",
+                  icon: "🟡"
+                },
+                low: {
+                  bg: "bg-yellow-100",
+                  border: "border-yellow-300",
+                  text: "text-yellow-800", 
+                  accent: "bg-yellow-500",
+                  icon: "🟨"
+                }
+              };
+              
+              const severity = flag.severity || "medium";
+              const colors = severityColors[severity];
+              
+              return (
+                <div key={`rf-${idx}`} className={`relative rounded-xl border-2 ${colors.border} ${colors.bg} p-4`}>
+                  {/* Severity indicator */}
+                  <div className={`absolute left-0 top-0 h-full w-1.5 ${colors.accent} rounded-l-xl`} />
+                  
+                  <div className="flex items-start gap-3 pl-3">
+                    <span className="text-lg mt-0.5">{colors.icon}</span>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between mb-2">
+                        <h4 className={`font-semibold ${colors.text}`}>
+                          {flag.issue || "Issue Identified"}
+                        </h4>
+                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${colors.bg} ${colors.text} border ${colors.border}`}>
+                          {severity.toUpperCase()} PRIORITY
+                        </span>
+                      </div>
+                      
+                      {flag.description && (
+                        <p className="text-gray-700 text-sm mb-3 leading-relaxed">
+                          {flag.description}
+                        </p>
+                      )}
+                      
+                      {flag.solution && (
+                        <div className="bg-white/70 rounded-lg p-3 border border-gray-200">
+                          <div className="flex items-start gap-2">
+                            <span className="text-green-600 font-medium text-sm">💡 Solution:</span>
+                            <p className="text-gray-700 text-sm leading-relaxed">
+                              {flag.solution}
+                            </p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          
+          {/* Summary banner */}
+          <div className="mt-6 bg-white/80 rounded-lg p-4 border border-red-200">
+            <div className="flex items-center gap-2">
+              <span className="text-red-600">⚠️</span>
+              <p className="text-sm text-gray-700">
+                <strong>Important:</strong> Address these red flags to improve your CV's chances of passing initial screenings and making a positive impression on recruiters.
+              </p>
+            </div>
+          </div>
         </Card>
       )}
 

@@ -132,6 +132,39 @@ Provide industry-specific recommendations (e.g., Tech, Finance, Healthcare).
 Suggest role-specific customizations to align with the target job.
 
 
+Red Flags Analysis
+
+
+Identify potential issues that could raise concerns for recruiters or ATS systems.
+
+
+Examples:
+
+
+Employment gaps without explanation
+
+
+Inconsistent formatting or typos
+
+
+Lack of contact information
+
+
+Generic or vague job descriptions
+
+
+Overqualification or underqualification signals
+
+
+Outdated skills or technologies
+
+
+Too long or too short CV length
+
+
+Missing essential sections
+
+
 Next-Step Recommendations
 
 
@@ -189,6 +222,15 @@ JSON structured text is preferred. Use arrays where applicable. The examples bel
   "tailoring_suggestions": [
     "{suggestion_one}",
     "{suggestion_two}"
+  ],
+
+  "red_flags": [
+    {
+      "issue": "{red_flag_issue}",
+      "description": "{detailed_description}",
+      "severity": "high|medium|low",
+      "solution": "{suggested_fix}"
+    }
   ],
 
   "next_steps": [
