@@ -35,6 +35,11 @@ export default function RootLayout({
             gtag('config', 'G-SKZ365WT3N');
           `}
         </Script>
+        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8727216760834208"
+     crossOrigin="anonymous"></Script>
+        
+        
+
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
