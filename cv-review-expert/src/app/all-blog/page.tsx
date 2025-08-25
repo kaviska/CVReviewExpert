@@ -2,13 +2,14 @@ import Card from "@/component/Card";
 import { client } from "../lib/sanity";
 
 async function getBlogs() {
-  const query = `*[_type == "blog"]{
+  const query = `*[_type == "blog" && defined(publishedAt)] | order(publishedAt desc){
     _id,
     title,
     "image": mainImage,
     "titleDescription": titleDescription,
     "slug": slug.current,
-    "author": author->name
+    "author": author->name,
+    publishedAt
   }`;
   return await client.fetch(query);
 }
@@ -20,6 +21,7 @@ type Blog = {
   titleDescription: string;
   slug: string;
   author: string;
+  publishedAt: string;
 };
 
 export default async function AllBlog() {
@@ -60,7 +62,7 @@ export default async function AllBlog() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
           {blogs.map((blog: Blog) => (
             <a 
-              href={`/blog/${blog.slug}`} 
+              href={`/blog/${blog.slug.trim()}`} 
               key={blog._id}
               className="group transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >

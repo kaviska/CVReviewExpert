@@ -13,7 +13,8 @@ interface PageProps {
 }
 
 async function getBlogBySlug(slug: string[]) {
-  const query = `*[_type == "blog" && slug.current == $slug]{
+  // Try exact match first, then try with trimmed comparison
+  const query = `*[_type == "blog" && (slug.current == $slug || slug.current == $slugWithSpace)]{
     ...,
     "author": author->name,
     "authorImage": author->image,
@@ -24,7 +25,10 @@ async function getBlogBySlug(slug: string[]) {
     "categories": categories[]->title,
     "tags": tags[]->title
   }`;
-  const queryParams = { slug };
+  const queryParams = { 
+    slug: slug,
+    slugWithSpace: slug + " " // Try with trailing space
+  };
   return await client.fetch(query, queryParams);
 }
 

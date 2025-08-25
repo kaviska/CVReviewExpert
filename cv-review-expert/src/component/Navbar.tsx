@@ -26,6 +26,15 @@ export default function Navbar() {
               <a href="/" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
                 Home
               </a>
+              {/* <a href="/cv-review" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                CV Review
+              </a>
+              <a href="/ats-analysis" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                ATS Analysis
+              </a>
+              <a href="/cv-writing" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                CV Writing
+              </a> */}
               <a href="/all-blog" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
                 Blogs
               </a>
@@ -98,6 +107,15 @@ export default function Navbar() {
               <a href="/" className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-sm font-medium">
                 Home
               </a>
+              {/* <a href="/cv-review" className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-sm font-medium">
+                CV Review
+              </a>
+              <a href="/ats-analysis" className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-sm font-medium">
+                ATS Analysis
+              </a>
+              <a href="/cv-writing" className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-sm font-medium">
+                CV Writing
+              </a> */}
               <a href="/all-blog" className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-sm font-medium">
                 Blogs
               </a>
