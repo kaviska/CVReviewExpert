@@ -149,7 +149,7 @@ const CVReviewPage = () => {
             behavior: 'smooth', 
             block: 'start' 
           });
-        }, 500);
+        }, 100);
       } else {
         stopProgressSimulation(0);
         setUploadState(prev => ({ ...prev, uploading: false, error: 'Upload failed' }));

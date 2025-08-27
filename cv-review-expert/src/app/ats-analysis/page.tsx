@@ -162,7 +162,7 @@ const ATSAnalysisPage = () => {
             behavior: 'smooth', 
             block: 'start' 
           });
-        }, 500);
+        }, 100);
       } else {
         const errorData = await response.json();
         stopProgressSimulation(0);
