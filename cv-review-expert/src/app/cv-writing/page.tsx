@@ -4,6 +4,14 @@ import React, { useState, useCallback, useRef, useEffect } from 'react';
 import Navbar from '../../component/Navbar';
 import Footer from '../../component/Footer';
 import CVWritingResult from '../../component/CVWritingResult';
+import CVWritingHeroSection from '../../component/CVWritingHeroSection';
+import CVWritingServices from '../../component/CVWritingServices';
+import CVWritingProcess from '../../component/CVWritingProcess';
+import CVWritingSamples from '../../component/CVWritingSamples';
+import CVWritingFAQ from '../../component/CVWritingFAQ';
+import CVWritingTestimonials from '../../component/CVWritingTestimonials';
+import CVWritingCTAFooter from '../../component/CVWritingCTAFooter';
+import CVWritingStructuredData from '../../component/CVWritingStructuredData';
 
 interface UploadState {
   file: File | null;
@@ -435,6 +443,19 @@ const CVWritingPage = () => {
           )}
         </div>
       </main>
+      
+      {/* New SEO-Optimized Content Sections */}
+      <CVWritingHeroSection />
+      <CVWritingServices />
+      <CVWritingProcess />
+      <CVWritingSamples />
+      <CVWritingTestimonials />
+      <CVWritingFAQ />
+      <CVWritingCTAFooter />
+      
+      {/* Structured Data */}
+      <CVWritingStructuredData />
+      
       <Footer />
     </div>
   );
