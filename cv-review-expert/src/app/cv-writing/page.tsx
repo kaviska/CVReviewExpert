@@ -39,6 +39,7 @@ const CVWritingPage = () => {
   const [targetRole, setTargetRole] = useState<string>("");
   const progressTimer = useRef<ReturnType<typeof setInterval> | null>(null);
   const progressSectionRef = useRef<HTMLDivElement | null>(null);
+  const resultsSectionRef = useRef<HTMLDivElement | null>(null);
 
   // Handle drag events
   const handleDrag = useCallback((e: React.DragEvent) => {
@@ -157,6 +158,14 @@ const CVWritingPage = () => {
           result,
           rewrittenData: result.rewrittenCv 
         }));
+        
+        // Scroll to results section after a short delay
+        setTimeout(() => {
+          resultsSectionRef.current?.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }, 500);
       } else {
         const errorData = await response.json();
         stopProgressSimulation(0);
@@ -405,7 +414,7 @@ const CVWritingPage = () => {
               </div>
             </div>
           ) : (
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-5xl mx-auto" ref={resultsSectionRef}>
               <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 mb-8">
                 <div className="text-center mb-6 sm:mb-8">
                   <div className="w-16 sm:w-20 h-16 sm:h-20 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
