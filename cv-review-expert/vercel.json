@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.cvreviewexpert.com"
+        }
+      ],
+      "destination": "https://cvreviewexpert.com/:1",
+      "permanent": true
+    }
+  ]
+}

@@ -34,7 +34,10 @@ export const metadata: Metadata = {
     'article:section': 'Career Tools',
     'article:tag': 'ATS, Resume Checker, Job Search, Career',
   },
+  metadataBase: new URL('https://cvreviewexpert.com'),
+
 };
+
 
 export default function ATSAnalysisLayout({
   children,
