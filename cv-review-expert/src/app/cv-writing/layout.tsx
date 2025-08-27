@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Free AI CV Writing Service | AI-Powered Resume Writer | CV Review Expert',
+    title: 'Free AI CV Writing Service',
     description: 'Get your CV written by advanced AI technology for free. AI-powered resume writing with ATS optimization and instant results. No payment required - completely free AI CV writer.',
     keywords: [
         'free ai cv writing service',

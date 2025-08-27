@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Free ATS Resume Checker - Check Your ATS Score Without Login | CVReviewExpert',
+  title: 'Free ATS Resume Checker - Without Login',
   description: 'Free ATS resume checker - Test your CV\'s ATS score instantly without registration. Our ATS score checker free tool helps optimize your resume for applicant tracking systems. Get detailed analysis and improve your interview chances.',
   keywords: 'ats resume checker free, ats score checker free without login, free ats resume scanner, ats compatibility checker, applicant tracking system checker, resume ats optimization, ats friendly resume analyzer',
   robots: 'index, follow',
