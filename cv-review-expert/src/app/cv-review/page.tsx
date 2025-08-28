@@ -116,10 +116,10 @@ const CVReviewPage = () => {
     
     // Scroll to progress section for better user experience
     setTimeout(() => {
-      progressSectionRef.current?.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start' 
-      });
+      if (progressSectionRef.current) {
+      const top = progressSectionRef.current.getBoundingClientRect().top + window.scrollY - 50;
+      window.scrollTo({ top, behavior: 'smooth' });
+      }
     }, 100);
     
     const formData = new FormData();

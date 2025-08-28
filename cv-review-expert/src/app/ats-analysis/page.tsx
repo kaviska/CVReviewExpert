@@ -129,7 +129,7 @@ const ATSAnalysisPage = () => {
     // Scroll to progress section with 20px offset above
     setTimeout(() => {
       if (progressSectionRef.current) {
-      const top = progressSectionRef.current.getBoundingClientRect().top + window.scrollY - 40;
+      const top = progressSectionRef.current.getBoundingClientRect().top + window.scrollY - 50;
       window.scrollTo({ top, behavior: 'smooth' });
       }
     }, 100);

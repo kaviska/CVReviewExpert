@@ -127,11 +127,11 @@ const CVWritingPage = () => {
     startProgressSimulation();
     
     // Scroll to progress section
-    setTimeout(() => {
-      progressSectionRef.current?.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start' 
-      });
+     setTimeout(() => {
+      if (progressSectionRef.current) {
+      const top = progressSectionRef.current.getBoundingClientRect().top + window.scrollY - 50;
+      window.scrollTo({ top, behavior: 'smooth' });
+      }
     }, 100);
     
     const formData = new FormData();
