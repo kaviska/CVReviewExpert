@@ -165,7 +165,7 @@ const CVWritingPage = () => {
             behavior: 'smooth', 
             block: 'start' 
           });
-        }, 100);
+        }, 500);
       } else {
         const errorData = await response.json();
         stopProgressSimulation(0);
