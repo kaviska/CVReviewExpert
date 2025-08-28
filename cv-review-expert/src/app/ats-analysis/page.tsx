@@ -126,12 +126,12 @@ const ATSAnalysisPage = () => {
     setUploadState(prev => ({ ...prev, uploading: true, progress: 0, error: null }));
     startProgressSimulation();
     
-    // Scroll to progress section
+    // Scroll to progress section with 20px offset above
     setTimeout(() => {
-      progressSectionRef.current?.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start' 
-      });
+      if (progressSectionRef.current) {
+      const top = progressSectionRef.current.getBoundingClientRect().top + window.scrollY - 40;
+      window.scrollTo({ top, behavior: 'smooth' });
+      }
     }, 100);
     
     const formData = new FormData();
