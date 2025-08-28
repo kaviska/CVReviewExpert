@@ -11,7 +11,9 @@ const app = express();
 app.use(cors({
     origin: [
         "http://localhost:3000",
-        "https://www.cvreviewexpert.com"
+        "https://www.cvreviewexpert.com",
+        "https://cvreviewexpert.com",
+
     ]
 }));
 
