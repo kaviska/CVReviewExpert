@@ -6,6 +6,10 @@ import FAQBlog from "@/component/FAQBlog";
 import Catalog from "@/component/Catalog";
 import { client } from "../../lib/sanity";
 
+// Use ISR with short revalidation time for better performance
+export const revalidate = 10; // Revalidate every 10 seconds
+export const dynamic = 'force-static'; // Use static generation with ISR
+
 //comented out the import of client
 
 interface PageProps {
@@ -29,7 +33,11 @@ async function getBlogBySlug(slug: string[]) {
     slug: slug,
     slugWithSpace: slug + " " // Try with trailing space
   };
-  return await client.fetch(query, queryParams);
+  
+  // Use ISR-friendly caching
+  return await client.fetch(query, queryParams, { 
+    next: { revalidate: 10 }
+  });
 }
 
 // Dynamic Metadata

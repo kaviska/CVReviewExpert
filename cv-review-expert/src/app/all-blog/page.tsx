@@ -1,6 +1,10 @@
 import Card from "@/component/Card";
 import { client } from "../lib/sanity";
 
+// Use ISR with very short revalidation time for better performance
+export const revalidate = 10; // Revalidate every 10 seconds
+export const dynamic = 'force-static'; // Use static generation with ISR
+
 async function getBlogs() {
   const query = `*[_type == "blog" && defined(publishedAt)] | order(publishedAt desc){
     _id,
@@ -11,7 +15,11 @@ async function getBlogs() {
     "author": author->name,
     publishedAt
   }`;
-  return await client.fetch(query);
+  
+  // Use ISR-friendly caching
+  return await client.fetch(query, {}, { 
+    next: { revalidate: 10 }
+  });
 }
 
 type Blog = {
