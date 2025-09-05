@@ -173,9 +173,14 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Login/Register Buttons */}
+          {/* Language Switcher & Login/Register Buttons */}
             <div className="hidden md:block">
-            <div className="ml-4 flex items-center space-x-3">
+            <div className="ml-4 flex items-center space-x-4">
+              <div className="flex items-center space-x-2">
+                <span className="text-sm font-medium text-blue-600">EN</span>
+                <span className="text-gray-300">|</span>
+                <a href="/jp" className="text-sm text-gray-500 hover:text-gray-700">JP</a>
+              </div>
               <a
               href="/login"
               className="relative text-gray-700 hover:text-blue-600 px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 transform hover:scale-105 hover:shadow-md overflow-hidden group"
@@ -291,6 +296,17 @@ export default function Navbar() {
               <a href="/contact" className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-sm font-medium">
                 Contact
               </a>
+              
+              {/* Language switcher for mobile */}
+              <div className="flex items-center justify-between px-3 py-2">
+                <span className="text-gray-600 text-sm font-medium">Language:</span>
+                <div className="flex items-center space-x-2">
+                  <span className="text-sm font-medium text-blue-600">English</span>
+                  <span className="text-gray-300">|</span>
+                  <a href="/jp" className="text-sm text-gray-500 hover:text-gray-700">日本語</a>
+                </div>
+              </div>
+              
               <div className="border-t border-gray-200 pt-4 pb-3">
                 <div className="space-y-3">
                   <button className="relative text-gray-700 hover:text-blue-600 block px-4 py-3 rounded-xl text-sm font-bold w-full text-left transition-all duration-300 transform hover:scale-105 hover:shadow-md overflow-hidden group">
