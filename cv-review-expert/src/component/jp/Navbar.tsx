@@ -132,7 +132,7 @@ export default function Navbar() {
 
                     {/* ATS Analysis */}
                     <a 
-                      href="/jp/ats-analysis" 
+                      href="/ats-analysis" 
                       className="flex items-center px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-all duration-200 group"
                     >
                       <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3 group-hover:bg-green-200 transition-colors duration-200">
@@ -148,7 +148,7 @@ export default function Navbar() {
 
                     {/* CV Writing */}
                     <a 
-                      href="/jp/cv-writing" 
+                      href="/cv-writing" 
                       className="flex items-center px-4 py-3 text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-all duration-200 group"
                     >
                       <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-3 group-hover:bg-purple-200 transition-colors duration-200">
@@ -165,13 +165,13 @@ export default function Navbar() {
                 </div>
               </div>
 
-              <a href="/jp/pricing" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+              <a href="/pricing" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
                 料金
               </a>
-              <a href="/jp/about" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+              <a href="/about" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
                 概要
               </a>
-              <a href="/jp/contact" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+              <a href="/contact" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
                 お問い合わせ
               </a>
             </div>
@@ -289,22 +289,22 @@ export default function Navbar() {
               <a href="/jp/cv-review" className="block px-3 py-2 text-sm text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200">
                 CVレビュー
               </a>
-              <a href="/jp/ats-analysis" className="block px-3 py-2 text-sm text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200">
+              <a href="/ats-analysis" className="block px-3 py-2 text-sm text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200">
                 ATS分析
               </a>
-              <a href="/jp/cv-writing" className="block px-3 py-2 text-sm text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200">
+              <a href="/cv-writing" className="block px-3 py-2 text-sm text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200">
                 CV作成
               </a>
             </div>
           </div>
 
-          <a href="/jp/pricing" className="block px-3 py-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md text-base font-medium transition-colors duration-200">
+          <a href="/pricing" className="block px-3 py-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md text-base font-medium transition-colors duration-200">
             料金
           </a>
-          <a href="/jp/about" className="block px-3 py-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md text-base font-medium transition-colors duration-200">
+          <a href="/about" className="block px-3 py-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md text-base font-medium transition-colors duration-200">
             概要
           </a>
-          <a href="/jp/contact" className="block px-3 py-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md text-base font-medium transition-colors duration-200">
+          <a href="/contact" className="block px-3 py-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md text-base font-medium transition-colors duration-200">
             お問い合わせ
           </a>
           

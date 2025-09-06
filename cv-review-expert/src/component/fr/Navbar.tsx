@@ -132,7 +132,7 @@ export default function Navbar() {
 
                     {/* ATS Analysis */}
                     <a 
-                      href="/fr/ats-analysis" 
+                      href="/ats-analysis" 
                       className="flex items-center px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-all duration-200 group"
                     >
                       <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3 group-hover:bg-green-200 transition-colors duration-200">
@@ -148,7 +148,7 @@ export default function Navbar() {
 
                     {/* CV Writing */}
                     <a 
-                      href="/fr/cv-writing" 
+                      href="/cv-writing" 
                       className="flex items-center px-4 py-3 text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-all duration-200 group"
                     >
                       <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-3 group-hover:bg-purple-200 transition-colors duration-200">
@@ -165,13 +165,13 @@ export default function Navbar() {
                 </div>
               </div>
 
-              <a href="/fr/pricing" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+              <a href="/pricing" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
                 Tarifs
               </a>
-              <a href="/fr/about" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+              <a href="/about" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
                 À propos
               </a>
-              <a href="/fr/contact" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+              <a href="/contact" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
                 Contact
               </a>
             </div>
@@ -318,22 +318,22 @@ export default function Navbar() {
               <a href="/fr/cv-review" className="block px-3 py-2 text-sm text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200">
                 Révision de CV
               </a>
-              <a href="/fr/ats-analysis" className="block px-3 py-2 text-sm text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200">
+              <a href="/ats-analysis" className="block px-3 py-2 text-sm text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200">
                 Analyse ATS
               </a>
-              <a href="/fr/cv-writing" className="block px-3 py-2 text-sm text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200">
+              <a href="/cv-writing" className="block px-3 py-2 text-sm text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200">
                 Rédaction de CV
               </a>
             </div>
           </div>
 
-          <a href="/fr/pricing" className="block px-3 py-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md text-base font-medium transition-colors duration-200">
+          <a href="/pricing" className="block px-3 py-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md text-base font-medium transition-colors duration-200">
             Tarifs
           </a>
-          <a href="/fr/about" className="block px-3 py-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md text-base font-medium transition-colors duration-200">
+          <a href="/about" className="block px-3 py-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md text-base font-medium transition-colors duration-200">
             À propos
           </a>
-          <a href="/fr/contact" className="block px-3 py-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md text-base font-medium transition-colors duration-200">
+          <a href="/contact" className="block px-3 py-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md text-base font-medium transition-colors duration-200">
             Contact
           </a>
           

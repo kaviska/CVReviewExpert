@@ -95,7 +95,7 @@ export default function FAQ() {
           <p className="text-gray-600 mb-6">Notre équipe de support aide avec les requêtes CV, curriculum vitae, ATS et analyse IA. Attendez-vous à une réponse dans les 24 heures.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="/fr/contact"
+              href="/contact"
               className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 text-white px-8 py-4 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 shadow-lg overflow-hidden group"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-blue-500 via-blue-600 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>

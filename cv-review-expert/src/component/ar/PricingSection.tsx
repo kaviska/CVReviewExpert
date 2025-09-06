@@ -278,7 +278,7 @@ export default function PricingSection() {
             تحتاج إلى خطة مخصصة؟ تواصل معنا
           </p>
           <a
-            href="/ar/contact"
+            href="/contact"
             className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200"
           >
             تواصل معنا

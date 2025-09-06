@@ -59,7 +59,7 @@ export default function FAQ() {
             他にご質問がありますか？お気軽にお問い合わせください。
           </p>
           <a
-            href="/jp/contact"
+            href="/contact"
             className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
           >
             お問い合わせ

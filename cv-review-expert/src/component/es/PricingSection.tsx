@@ -111,7 +111,7 @@ export default function PricingSection() {
 
         <div className="text-center mt-16">
           <p className="text-gray-600 mb-4">
-            ¿Necesitas algo personalizado? <a href="/es/contact" className="text-blue-600 hover:underline">Contáctanos</a>
+            ¿Necesitas algo personalizado? <a href="/contact" className="text-blue-600 hover:underline">Contáctanos</a>
           </p>
           <div className="flex items-center justify-center space-x-6 text-sm text-gray-500">
             <span className="flex items-center">

@@ -72,7 +72,7 @@ export default function CTAFooter() {
             </a>
             
             <a
-              href="/ar/about"
+              href="/about"
               className="inline-flex items-center px-6 py-3 border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-blue-600 transition-all duration-200"
             >
               تعرف أكثر عن الخدمة
