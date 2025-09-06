@@ -53,7 +53,7 @@ export default function JapanesePage() {
       <SampleOutput />
       <ComingSoon />
       <Testimonials />
-      <PricingSection />
+      {/* <PricingSection /> */}
       <FAQ />
       <CTAFooter />
     </div>

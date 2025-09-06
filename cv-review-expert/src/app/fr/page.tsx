@@ -54,7 +54,6 @@ export default function FrenchPage() {
       <SampleOutput />
       <ComingSoon />
       <Testimonials />
-      <PricingSection />
       <FAQ />
       <CTAFooter />
     </div>

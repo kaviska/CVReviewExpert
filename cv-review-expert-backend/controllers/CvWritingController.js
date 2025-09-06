@@ -96,7 +96,14 @@ Instructions:
    - Maintain readability while optimizing for ATS systems
    - Use synonyms and variations of key terms
 
-Return the rewritten CV in JSON format with clear sections:
+Return the rewritten CV in JSON format with clear sections 
+Language Adaptation Instructions:
+- Automatically detect the language of the CV text and job description
+- If the CV or job description is in a language other than English, provide your analysis and feedback in that same language
+- Always keep JSON keys in English, but provide all values (feedback, suggestions, descriptions) in the detected language of the input
+- Maintain professional terminology and industry-specific vocabulary appropriate to the detected language
+- Ensure cultural and regional appropriateness in your recommendations for the detected language/region
+:
 
 {
   "rewritten_cv": {

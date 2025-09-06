@@ -184,6 +184,14 @@ Examples:
 
 
 JSON structured text is preferred. Use arrays where applicable. The examples below are illustrative — feel free to include more items if available, and if no data exists for a field, return an empty array or object as appropriate.
+
+Language Adaptation Instructions:
+- Automatically detect the language of the CV text and job description
+- If the CV or job description is in a language other than English, provide your analysis and feedback in that same language
+- Always keep JSON keys in English, but provide all values (feedback, suggestions, descriptions) in the detected language of the input
+- Maintain professional terminology and industry-specific vocabulary appropriate to the detected language
+- Ensure cultural and regional appropriateness in your recommendations for the detected language/region
+
 {
   "overall_score": "{number}/100",
   "summary": "{summary}",
