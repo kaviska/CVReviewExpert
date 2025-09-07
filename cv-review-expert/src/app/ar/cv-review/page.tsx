@@ -4,6 +4,7 @@ import React, { useState, useCallback, useRef, useEffect } from 'react';
 import Navbar from '../../../component/ar/Navbar';
 import Footer from '../../../component/Footer';
 import AnalysisResult from '../../../component/AnalysisResult';
+// update
 
 interface UploadState {
   file: File | null;
