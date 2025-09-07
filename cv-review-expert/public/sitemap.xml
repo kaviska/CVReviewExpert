@@ -1,91 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Base URL assumption: https://cvreviewexpert.com -->
-  
-  <!-- Home Page - English -->
   <url>
     <loc>https://cvreviewexpert.com/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cvreviewexpert.com/" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://cvreviewexpert.com/ar" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://cvreviewexpert.com/fr" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://cvreviewexpert.com/pt" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://cvreviewexpert.com/jp" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://cvreviewexpert.com/es" />
   </url>
-  
-  <!-- Home Page - Arabic -->
-  <url>
-    <loc>https://cvreviewexpert.com/ar</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cvreviewexpert.com/" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://cvreviewexpert.com/ar" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://cvreviewexpert.com/fr" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://cvreviewexpert.com/pt" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://cvreviewexpert.com/jp" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://cvreviewexpert.com/es" />
-  </url>
-  
-  <!-- Home Page - French -->
-  <url>
-    <loc>https://cvreviewexpert.com/fr</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cvreviewexpert.com/" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://cvreviewexpert.com/ar" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://cvreviewexpert.com/fr" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://cvreviewexpert.com/pt" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://cvreviewexpert.com/jp" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://cvreviewexpert.com/es" />
-  </url>
-  
-  <!-- Home Page - Portuguese -->
-  <url>
-    <loc>https://cvreviewexpert.com/pt</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cvreviewexpert.com/" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://cvreviewexpert.com/ar" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://cvreviewexpert.com/fr" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://cvreviewexpert.com/pt" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://cvreviewexpert.com/jp" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://cvreviewexpert.com/es" />
-  </url>
-  
-  <!-- Home Page - Japanese -->
-  <url>
-    <loc>https://cvreviewexpert.com/jp</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cvreviewexpert.com/" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://cvreviewexpert.com/ar" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://cvreviewexpert.com/fr" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://cvreviewexpert.com/pt" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://cvreviewexpert.com/jp" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://cvreviewexpert.com/es" />
-  </url>
-  
-  <!-- Home Page - Spanish -->
-  <url>
-    <loc>https://cvreviewexpert.com/es</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cvreviewexpert.com/" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://cvreviewexpert.com/ar" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://cvreviewexpert.com/fr" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://cvreviewexpert.com/pt" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://cvreviewexpert.com/jp" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://cvreviewexpert.com/es" />
-  </url>
-  
 
   <url>
     <loc>https://cvreviewexpert.com/about</loc>
