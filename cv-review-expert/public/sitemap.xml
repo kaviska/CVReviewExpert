@@ -4,15 +4,157 @@
 <url>
   <loc>https://cvreviewexpert.com/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://cvreviewexpert.com/" />
-  <xhtml:link rel="alternate" hreflang="ar" href="https://cvreviewexpert.com/ar/" />
-  <xhtml:link rel="alternate" hreflang="fr" href="https://cvreviewexpert.com/fr/" />
-  <xhtml:link rel="alternate" hreflang="pt" href="https://cvreviewexpert.com/pt/" />
-  <xhtml:link rel="alternate" hreflang="ja" href="https://cvreviewexpert.com/ja/" />
-  <xhtml:link rel="alternate" hreflang="es" href="https://cvreviewexpert.com/es/" />
+  <xhtml:link rel="alternate" hreflang="ar" href="https://cvreviewexpert.com/ar" />
+  <xhtml:link rel="alternate" hreflang="fr" href="https://cvreviewexpert.com/fr" />
+  <xhtml:link rel="alternate" hreflang="pt" href="https://cvreviewexpert.com/pt" />
+  <xhtml:link rel="alternate" hreflang="ja" href="https://cvreviewexpert.com/jp" />
+  <xhtml:link rel="alternate" hreflang="es" href="https://cvreviewexpert.com/es" />
   <xhtml:link rel="alternate" hreflang="x-default" href="https://cvreviewexpert.com/" />
   <lastmod>2025-09-06</lastmod>
   <changefreq>daily</changefreq>
   <priority>1.0</priority>
+</url>
+
+<!-- Language-specific homepages -->
+<url>
+  <loc>https://cvreviewexpert.com/ar</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://cvreviewexpert.com/" />
+  <xhtml:link rel="alternate" hreflang="ar" href="https://cvreviewexpert.com/ar" />
+  <xhtml:link rel="alternate" hreflang="fr" href="https://cvreviewexpert.com/fr" />
+  <xhtml:link rel="alternate" hreflang="pt" href="https://cvreviewexpert.com/pt" />
+  <xhtml:link rel="alternate" hreflang="ja" href="https://cvreviewexpert.com/jp" />
+  <xhtml:link rel="alternate" hreflang="es" href="https://cvreviewexpert.com/es" />
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://cvreviewexpert.com/" />
+  <lastmod>2025-09-07</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://cvreviewexpert.com/fr</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://cvreviewexpert.com/" />
+  <xhtml:link rel="alternate" hreflang="ar" href="https://cvreviewexpert.com/ar" />
+  <xhtml:link rel="alternate" hreflang="fr" href="https://cvreviewexpert.com/fr" />
+  <xhtml:link rel="alternate" hreflang="pt" href="https://cvreviewexpert.com/pt" />
+  <xhtml:link rel="alternate" hreflang="ja" href="https://cvreviewexpert.com/jp" />
+  <xhtml:link rel="alternate" hreflang="es" href="https://cvreviewexpert.com/es" />
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://cvreviewexpert.com/" />
+  <lastmod>2025-09-07</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://cvreviewexpert.com/pt</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://cvreviewexpert.com/" />
+  <xhtml:link rel="alternate" hreflang="ar" href="https://cvreviewexpert.com/ar" />
+  <xhtml:link rel="alternate" hreflang="fr" href="https://cvreviewexpert.com/fr" />
+  <xhtml:link rel="alternate" hreflang="pt" href="https://cvreviewexpert.com/pt" />
+  <xhtml:link rel="alternate" hreflang="ja" href="https://cvreviewexpert.com/jp" />
+  <xhtml:link rel="alternate" hreflang="es" href="https://cvreviewexpert.com/es" />
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://cvreviewexpert.com/" />
+  <lastmod>2025-09-07</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://cvreviewexpert.com/jp</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://cvreviewexpert.com/" />
+  <xhtml:link rel="alternate" hreflang="ar" href="https://cvreviewexpert.com/ar" />
+  <xhtml:link rel="alternate" hreflang="fr" href="https://cvreviewexpert.com/fr" />
+  <xhtml:link rel="alternate" hreflang="pt" href="https://cvreviewexpert.com/pt" />
+  <xhtml:link rel="alternate" hreflang="ja" href="https://cvreviewexpert.com/jp" />
+  <xhtml:link rel="alternate" hreflang="es" href="https://cvreviewexpert.com/es" />
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://cvreviewexpert.com/" />
+  <lastmod>2025-09-07</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://cvreviewexpert.com/es</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://cvreviewexpert.com/" />
+  <xhtml:link rel="alternate" hreflang="ar" href="https://cvreviewexpert.com/ar" />
+  <xhtml:link rel="alternate" hreflang="fr" href="https://cvreviewexpert.com/fr" />
+  <xhtml:link rel="alternate" hreflang="pt" href="https://cvreviewexpert.com/pt" />
+  <xhtml:link rel="alternate" hreflang="ja" href="https://cvreviewexpert.com/jp" />
+  <xhtml:link rel="alternate" hreflang="es" href="https://cvreviewexpert.com/es" />
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://cvreviewexpert.com/" />
+  <lastmod>2025-09-07</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<!-- Language-specific CV Review pages -->
+<url>
+  <loc>https://cvreviewexpert.com/ar/cv-review</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://cvreviewexpert.com/cv-review" />
+  <xhtml:link rel="alternate" hreflang="ar" href="https://cvreviewexpert.com/ar/cv-review" />
+  <xhtml:link rel="alternate" hreflang="fr" href="https://cvreviewexpert.com/fr/cv-review" />
+  <xhtml:link rel="alternate" hreflang="pt" href="https://cvreviewexpert.com/pt/cv-review" />
+  <xhtml:link rel="alternate" hreflang="ja" href="https://cvreviewexpert.com/jp/cv-review" />
+  <xhtml:link rel="alternate" hreflang="es" href="https://cvreviewexpert.com/es/cv-review" />
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://cvreviewexpert.com/cv-review" />
+  <lastmod>2025-09-07</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://cvreviewexpert.com/fr/cv-review</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://cvreviewexpert.com/cv-review" />
+  <xhtml:link rel="alternate" hreflang="ar" href="https://cvreviewexpert.com/ar/cv-review" />
+  <xhtml:link rel="alternate" hreflang="fr" href="https://cvreviewexpert.com/fr/cv-review" />
+  <xhtml:link rel="alternate" hreflang="pt" href="https://cvreviewexpert.com/pt/cv-review" />
+  <xhtml:link rel="alternate" hreflang="ja" href="https://cvreviewexpert.com/jp/cv-review" />
+  <xhtml:link rel="alternate" hreflang="es" href="https://cvreviewexpert.com/es/cv-review" />
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://cvreviewexpert.com/cv-review" />
+  <lastmod>2025-09-07</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://cvreviewexpert.com/pt/cv-review</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://cvreviewexpert.com/cv-review" />
+  <xhtml:link rel="alternate" hreflang="ar" href="https://cvreviewexpert.com/ar/cv-review" />
+  <xhtml:link rel="alternate" hreflang="fr" href="https://cvreviewexpert.com/fr/cv-review" />
+  <xhtml:link rel="alternate" hreflang="pt" href="https://cvreviewexpert.com/pt/cv-review" />
+  <xhtml:link rel="alternate" hreflang="ja" href="https://cvreviewexpert.com/jp/cv-review" />
+  <xhtml:link rel="alternate" hreflang="es" href="https://cvreviewexpert.com/es/cv-review" />
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://cvreviewexpert.com/cv-review" />
+  <lastmod>2025-09-07</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://cvreviewexpert.com/jp/cv-review</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://cvreviewexpert.com/cv-review" />
+  <xhtml:link rel="alternate" hreflang="ar" href="https://cvreviewexpert.com/ar/cv-review" />
+  <xhtml:link rel="alternate" hreflang="fr" href="https://cvreviewexpert.com/fr/cv-review" />
+  <xhtml:link rel="alternate" hreflang="pt" href="https://cvreviewexpert.com/pt/cv-review" />
+  <xhtml:link rel="alternate" hreflang="ja" href="https://cvreviewexpert.com/jp/cv-review" />
+  <xhtml:link rel="alternate" hreflang="es" href="https://cvreviewexpert.com/es/cv-review" />
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://cvreviewexpert.com/cv-review" />
+  <lastmod>2025-09-07</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://cvreviewexpert.com/es/cv-review</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://cvreviewexpert.com/cv-review" />
+  <xhtml:link rel="alternate" hreflang="ar" href="https://cvreviewexpert.com/ar/cv-review" />
+  <xhtml:link rel="alternate" hreflang="fr" href="https://cvreviewexpert.com/fr/cv-review" />
+  <xhtml:link rel="alternate" hreflang="pt" href="https://cvreviewexpert.com/pt/cv-review" />
+  <xhtml:link rel="alternate" hreflang="ja" href="https://cvreviewexpert.com/jp/cv-review" />
+  <xhtml:link rel="alternate" hreflang="es" href="https://cvreviewexpert.com/es/cv-review" />
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://cvreviewexpert.com/cv-review" />
+  <lastmod>2025-09-07</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
 </url>
 
 
@@ -31,25 +173,26 @@
   </url>
 
   <url>
+    <loc>https://cvreviewexpert.com/cv-review</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cvreviewexpert.com/cv-review" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://cvreviewexpert.com/ar/cv-review" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://cvreviewexpert.com/fr/cv-review" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://cvreviewexpert.com/pt/cv-review" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://cvreviewexpert.com/jp/cv-review" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://cvreviewexpert.com/es/cv-review" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cvreviewexpert.com/cv-review" />
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+
+  <url>
     <loc>https://cvreviewexpert.com/contact</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
-
-<url>
-  <loc>https://cvreviewexpert.com</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://cvreviewexpert.com/" />
-  <xhtml:link rel="alternate" hreflang="ar" href="https://cvreviewexpert.com/ar" />
-  <xhtml:link rel="alternate" hreflang="fr" href="https://cvreviewexpert.com/fr" />
-  <xhtml:link rel="alternate" hreflang="pt" href="https://cvreviewexpert.com/pt" />
-  <xhtml:link rel="alternate" hreflang="ja" href="https://cvreviewexpert.com/jp" />
-  <xhtml:link rel="alternate" hreflang="es" href="https://cvreviewexpert.com/es" />
-  <xhtml:link rel="alternate" hreflang="x-default" href="https://cvreviewexpert.com/" />
-  <lastmod>2025-09-06</lastmod>
-  <changefreq>daily</changefreq>
-  <priority>0.9</priority>
-</url>
 
    <url>
     <loc>https://cvreviewexpert.com/cv-writing</loc>
@@ -193,13 +336,7 @@
     <priority>0.7</priority>
 </url>
 <url>
-    <loc>https://www.cvreviewexpert.com/blog/cv-template-for-finance-professionals</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-</url>
-<url>
-    <loc>https://www.cvreviewexpert.com/blog/cv-template-for-finance-professionals</loc>
+    <loc>https://cvreviewexpert.com/blog/cv-template-for-finance-professionals</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
